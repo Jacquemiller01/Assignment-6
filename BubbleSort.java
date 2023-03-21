@@ -27,7 +27,7 @@ public class BubbleSort {
             }
             writer.close();
         } catch (IOException e) {
-            System.out.println("An error occurred while writing to file");
+            System.out.println("An error occurred ");
             e.printStackTrace();
         }
     }
@@ -51,7 +51,7 @@ public class BubbleSort {
             }
             arrayScanner.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println("Not found");
             e.printStackTrace();
         }
         return array;
@@ -73,32 +73,31 @@ public class BubbleSort {
 
         public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter 1 to generate an array of random integers and store it in a file");
-        System.out.println("Enter 2 to read an existing file containing a list of integers, sort it and store the sorted array in another file");
+        System.out.println("Enter 1 to create an array of random integers that will store it in a file");
+        System.out.println("Enter 2 to read an existing file that has a list of integers, sort it and store the sorted array in a different file");
         int option = sc.nextInt();
         if (option == 1) {
-            System.out.println("Enter the length of the array: ");
+            System.out.println("What is the length of the array: ");
             int arrayLength = sc.nextInt();
             int[] array = createRandomArray(arrayLength);
-            System.out.println("Enter the filename: ");
+            System.out.println("What is the filename: ");
             String filename = sc.next();
             writeArrayToFile(array, filename);
-            System.out.println("Array has been written to the file successfully");
+            System.out.println("Array has been written to the file");
         } else if (option == 2) {
-            System.out.println("Enter the filename: ");
+            System.out.println("What is the filename: ");
             String filename = sc.next();
             int[] array = readFileToArray(filename);
             if (array != null) {
                 bubbleSort(array);
-                System.out.println("Enter the filename to store the sorted array: ");
+                System.out.println("What is the filename to store the array: ");
                 String outputFilename = sc.next();
                 writeArrayToFile(array, outputFilename);
-                System.out.println("Sorted array has been written to the file successfully");
+                System.out.println("Sorted array has been written to the file ");
             }
         } else {
-            System.out.println("Invalid option");
+            System.out.println("Not Available");
         }
         sc.close();
     }
 }
-
